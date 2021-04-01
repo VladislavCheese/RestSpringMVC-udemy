@@ -17,10 +17,12 @@ public class MyRestController {
     public void setPeopleService(PeopleService peopleService) {
         this.peopleService = peopleService;
     }
+
     @GetMapping("/people")
     public List<PeopleEntity> showAllPeople(){
         return peopleService.getAllPeople();
     }
+
     @GetMapping("/people/{id}")
     public PeopleEntity getPerson(@PathVariable int id){
         PeopleEntity person = peopleService.getPerson(id);
@@ -28,16 +30,19 @@ public class MyRestController {
                 "with ID = " + id + " in Database");
         return person;
     }
+
     @PostMapping("/people")
     public PeopleEntity addNewPerson(@RequestBody PeopleEntity person){
         peopleService.savePerson(person);
         return person;
     }
+
     @PutMapping("/people")
     public PeopleEntity updatePerson(@RequestBody PeopleEntity person){
         peopleService.savePerson(person);
         return person;
     }
+
     @DeleteMapping("/people/{id}")
     public String deletePerson(@PathVariable int id){
         PeopleEntity person = peopleService.getPerson(id);

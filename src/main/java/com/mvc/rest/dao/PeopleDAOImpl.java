@@ -46,7 +46,7 @@ public class PeopleDAOImpl implements PeopleDAO{
     @Override
     public void deletePerson(int personId) {
         Session session = sessionFactory.getCurrentSession();
-        Query<PeopleEntity> query = session.createQuery("DELETE FROM PeopleEntity WHERE personId "
+        Query<PeopleEntity> query = session.createQuery("DELETE FROM PeopleEntity WHERE peopleId "
         + "= : currentPerson");
         query.setParameter("currentPerson", personId);
         query.executeUpdate();
